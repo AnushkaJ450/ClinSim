@@ -152,7 +152,7 @@ wilcox_power <- function(n1,n2,theta,alpha=0.05, rdist=rnorm, nsim=2000,
 # MAIN FUNCTION
 #####################################################################
 
-
+#' @export
 wpower <- function(theta, alpha = 0.05, power = 0.80, k = 1,
                  p1 = NULL, p2 = NULL, p3 = NULL,
                  rdist = rnorm,
