@@ -1,19 +1,18 @@
-################################################################
-# METHODS
-#   - print.wpower()   Short output od results
-#   - summary.wpower() Detailed Summary
-################################################################
 
-
-#' Print method for
+#' Print method for wpower object
 #'
-#' Short Summary of key results
-#' @parmam x A clinsim object
+#' Displays a summary of a \code{wpower} object, including the effect size
+#' used, the calculated sample size, the simulated power and the method used.
+
+
+#' @parmam x An object of returned by \code{wpower()}
 #' @param ... Additional arguments
+#'
+#' @return Returns the input object \code{x}
 
 
 print.wpower <- function(x,...){
-  cat("Wilcoxon-Mann-Whitney Sample Size/Power Calculation\n")
+  cat("Wilcoxon-Mann-Whitney Sample Size/Power \n")
   cat("Call: ")
   print(x$call)
   cat("\n")
@@ -32,24 +31,25 @@ print.wpower <- function(x,...){
 
 
 
-#' Summary method for
+#' Summary method for wpower object
 #'
-#' Detailed summary Method with explanation of results
+#' Detailed summary Method with explanation of results and estimated
+#' \eqn{p_1,p_2,p_3}
 #'
 #'
 #' @param object A wpower object
 #' @param ... additional arguments
 #'
-#'
-#'
+#' @return Returns the input object \code{object}
+
 
 summary.wpower<- function(object, ...) {
 
   cat("========================================================\n")
-  cat("  Wilcoxon-Mann-Whitney Sample Size & Power Calculation\n")
+  cat("  Wilcoxon-Mann-Whitney Sample Size & Power\n")
   cat("========================================================\n\n")
 
-  cat("Call:\n  ")
+ # cat("Call:\n  ")
   print(object$call)
   cat("\n")
 
@@ -60,11 +60,9 @@ summary.wpower<- function(object, ...) {
   cat(sprintf("  Location shift (theta):      %.4f\n", object$theta))
   cat(sprintf("  Allocation ratio (k=n1/n2):  %.1f\n", object$k))
   cat(sprintf("  wilcox.test settings:        alternative = %s, exact = %s, correct = %s\n",
-              object$wt_args$alternative,
-              as.character(object$wt_args$exact),
-              as.character(object$wt_args$correct)))
-  cat(sprintf("  Estimation replicates:       %d\n", object$nsim_est))
-  cat(sprintf("  Power simulation replicates: %d\n\n", object$nsim_pow))
+              object$alternative,
+              as.character(object$exact),
+              as.character(object$correct)))
 
   cat("\n")
   # Probability parameters

@@ -1,9 +1,7 @@
-################################################################################
-# power_curve.R
+
 #
 #  generating power curves across a range of
 # theta values, comparing Noether and TrialSize methods.
-################################################################################
 
 
 #' Plot power curves across a range of effect sizes
@@ -12,7 +10,7 @@
 #' results <- plot_power_curve(theta_range = seq(0.3, 1.2, by = 0.1))
 #' results2 <- plot_power_curve(theta_range = c(0.4, 0.6, 0.8, 1.0, 1.2),nsim_pow=3000)
 #'
-plot_power_curve <- function(theta_range, alpha = 0.05, power = 0.80,
+powerscan <- function(theta_range, alpha = 0.05, power = 0.80,
                              k = 1, rdist = rnorm,
                              alternative = "two.sided",
                              exact = FALSE, correct = FALSE,

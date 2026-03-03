@@ -2,7 +2,7 @@
 % Please edit documentation in R/Methods.R
 \name{print.wpower}
 \alias{print.wpower}
-\title{Print method for}
+\title{Print method for wpower object}
 \usage{
 \method{print}{wpower}(x, ...)
 }
@@ -10,5 +10,6 @@
 \item{...}{Additional arguments}
 }
 \description{
-Short Summary of key results
+Displays a summary of a \code{wpower} object, including the effect size
+used, the calculated sample size, the simulated power and the method used.
 }

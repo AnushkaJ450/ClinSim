@@ -2,7 +2,7 @@
 % Please edit documentation in R/Methods.R
 \name{summary.wpower}
 \alias{summary.wpower}
-\title{Summary method for}
+\title{Summary method for wpower object}
 \usage{
 \method{summary}{wpower}(object, ...)
 }
@@ -12,5 +12,6 @@
 \item{...}{additional arguments}
 }
 \description{
-Detailed summary Method with explanation of results
+Detailed summary Method with explanation of results and estimated
+\eqn{p_1,p_2,p_3}
 }
