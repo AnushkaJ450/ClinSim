@@ -3,7 +3,7 @@ title: "README"
 output: html_document
 ---
 
-#clinsim
+# ClinSim
 
 Simulation based validation of smaple size calculations
 
