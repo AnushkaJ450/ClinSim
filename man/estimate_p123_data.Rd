@@ -17,5 +17,8 @@ A list with p1, p2, p3
 \description{
 Given observed data from two groups, estimates p1, p2, p3 using
 pairwise comparisons. This follows estimators described on page 363 of
-T=Book
+in the Sample Size Calculations in Clinical Research Book.
+}
+\details{
+The implementation is based on the indicator form estimators.
 }

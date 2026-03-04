@@ -2,18 +2,27 @@
 % Please edit documentation in R/wpower.R
 \name{noether_N}
 \alias{noether_N}
-\title{Noether (1987) sample size formula}
+\title{Noether (1987) sample size approximation for the Wilcoxon rank-sum test}
 \usage{
 noether_N(alpha, beta, p1, k = 1)
 }
 \arguments{
-\item{alpha}{significance level}
+\item{alpha}{Numeric. significance level}
 
-\item{beta}{Type II error (1-Power)}
+\item{beta}{Numeric. Type II error (1-Power)}
+
+\item{p1}{Numeric. Effect size probability}
+
+\item{k}{Numeric. Allocation ratio. Default is 1}
 }
 \value{
-Total Sample Size N
+Integer. Total Sample Size N
 }
 \description{
-simpler only needs p1
+Computes the total sample size, using the Noether(1987) approximation
+for the two sample Wilcoxon test in the continuous case. This method depends
+only on the effect size.
+}
+\examples{
+noether_N(alpha = 0.05, beta=0.2, p1=0.7, k=1)
 }

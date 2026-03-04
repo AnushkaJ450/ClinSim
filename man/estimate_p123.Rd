@@ -2,14 +2,14 @@
 % Please edit documentation in R/wpower.R
 \name{estimate_p123}
 \alias{estimate_p123}
-\title{Estimate p1, p2, p3 from a location shift model via simulation}
+\title{Estimate p1, p2, and p3 from a location shift model by simulation}
 \usage{
 estimate_p123(theta, rdist, nsim = 30000)
 }
 \arguments{
 \item{theta}{Numeric Treatment Effect. Location Shift}
 
-\item{rdist}{Function. Default: rnorm}
+\item{rdist}{Function. Random generator for the error distribution. The default is \code{rnorm}}
 
 \item{nsim}{Number of simulation}
 }
@@ -17,7 +17,19 @@ estimate_p123(theta, rdist, nsim = 30000)
 A list with p1, p2, p3
 }
 \description{
-p1 = P(Y >= X)
-p2 = P(Y >= X1 AND Y >= X2)
-p3 = P(Y1 >= X AND Y2 >= X)
+Simulates independent samples from a chosen distribution under the model
+\eqn{X} and \eqn{X'} are i.i.d., and \eqn{Y = X' + \theta}.
+}
+\details{
+Estimates:
+\itemsize{
+\item \eqn{p_1 = P(Y >= X)}
+\item \eqn{p_2 = P(Y >= X_1 AND Y >= X_2)}
+\item \eqn{p_3 = P(Y_1 >= X AND Y_2 >= X)}
+}
+}
+\examples{
+estimate_p123(theta = 0.7, rdist = rnorm)
+estimate_p123(theta = 0.7, rdist= rlogis, nsim=5000)
+
 }

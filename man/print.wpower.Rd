@@ -9,6 +9,9 @@
 \arguments{
 \item{...}{Additional arguments}
 }
+\value{
+Returns the input object \code{x}
+}
 \description{
 Displays a summary of a \code{wpower} object, including the effect size
 used, the calculated sample size, the simulated power and the method used.

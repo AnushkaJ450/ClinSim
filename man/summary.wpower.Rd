@@ -11,6 +11,9 @@
 
 \item{...}{additional arguments}
 }
+\value{
+Returns the input object \code{object}
+}
 \description{
 Detailed summary Method with explanation of results and estimated
 \eqn{p_1,p_2,p_3}

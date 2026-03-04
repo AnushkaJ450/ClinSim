@@ -17,29 +17,34 @@ wilcox_power(
 )
 }
 \arguments{
-\item{n1}{Integer. Sample size for group 1}
+\item{n1}{Integer. Sample size for group 1 (control)}
 
-\item{n2}{Integer. Sample size for group 2}
+\item{n2}{Integer. Sample size for group 2 (treatment)}
+
+\item{theta}{Numeric. Location Shift}
 
 \item{alpha}{Numeric Significance level Default: 0.05}
 
-\item{rdist}{Default: rnorm}
+\item{rdist}{Function. Random Generator. Default: rnorm}
 
-\item{nsim}{Integer. Number of simulation replicates Default}
+\item{nsim}{Integer. Number of simulation replicates Default is 2000}
 
 \item{alternative}{Character Type of alternative hypothesis
-one if "two.sided", "less", "greater". Default: two.sided}
+one of "two.sided", "less", "greater". Default: two.sided}
 
-\item{exact}{logical Compuyer exact p-value. Default: FALSE}
+\item{exact}{logical Computes exact p-value. Default: FALSE}
 
 \item{correct}{Logical. Whether to apply continuity correction.
 Default: FALSE}
-
-\item{thera}{Numeric. Location Shift}
 }
 \value{
-Numeric, Estimated Power
+Numeric. Estimated Power
 }
 \description{
-Simulate power of the Wilcoxon rank-sum test
+Estimates the empirical power of \code{\link[stats]{wilcox.test}}
+under a location shift model by Monte Carlo simulation.
+}
+\examples{
+wilcox_power(n1 = 20, n2 = 20, theta = 0.7, rdist = rnorm, nsim = 1000)
+
 }

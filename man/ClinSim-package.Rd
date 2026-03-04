@@ -4,12 +4,21 @@
 \name{ClinSim-package}
 \alias{ClinSim}
 \alias{ClinSim-package}
-\title{ClinSim:}
+\title{ClinSim: Sample size checking by simulation}
 \description{
-Describe
+clinsim provides helper functions for planning and checking
+sample size calculations using simulation. It includes a non parametric two
+sample Wilcoxon rank-sum workflow and a simpler parametric example, designed
+for teaching and demonstration.
 }
 \details{
-The main functions are
+The main functions are:
+Main functions:
+\itemize{
+\item \code{mean2power()} — parametric two-sample mean sample size + simulation power check
+\item \code{wpower()} — Wilcoxon rank-sum sample size (Noether vs TrialSize) + simulation power check
+\item \code{powerscan()} — run \code{wpower()} across a grid of effect sizes and plot power / sample size curves
+}
 
 The following example datasets are provided.
 }
