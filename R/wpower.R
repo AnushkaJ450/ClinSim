@@ -5,11 +5,11 @@
 #'\eqn{X} and \eqn{X'} are i.i.d., and \eqn{Y = X' + \theta}.
 #'
 #' Estimates:
-#' \itemsize{
-#'   \item \eqn{p_1 = P(Y >= X)}
-#'   \item \eqn{p_2 = P(Y >= X_1 AND Y >= X_2)}
-#'   \item \eqn{p_3 = P(Y_1 >= X AND Y_2 >= X)}
-#'   }
+#'
+#'    \eqn{p_1 = P(Y >= X)}
+#'    \eqn{p_2 = P(Y >= X_1 & Y >= X_2)}
+#'    \eqn{p_3 = P(Y_1 >= X & Y_2 >= X)}
+#'
 #'
 #' @param theta Numeric Treatment Effect. Location Shift
 #' @param rdist Function. Random generator for the error distribution. The default is \code{rnorm}

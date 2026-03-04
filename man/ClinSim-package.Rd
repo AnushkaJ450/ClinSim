@@ -23,6 +23,6 @@ Main functions:
 The following example datasets are provided.
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com}
+\strong{Maintainer}: Anushka Jitendra \email{first.last@example.com}
 
 }
