@@ -109,8 +109,7 @@ summary.wpower<- function(object, ...) {
   } else {
     cat(sprintf("  TrialSize power (%.3f) is below the target (%.2f).\n",
                 object$trialsize$power, object$target_power))
-  }
-
+    }
 
   invisible(object)
 }

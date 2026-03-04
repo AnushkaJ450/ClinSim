@@ -64,22 +64,18 @@ mean2power <-  function(alpha, beta, sigma, k, margin,
     g2 <- rnorm(n2, margin, sigma)
 
     p_val <- stats::t.test(g1, g2, var.equal = TRUE)$p.value
-    p_val < alpha_test
+    p_val < alpha_test})
 
-  })
 
   empirical_power <- mean(rejections)
-
-
   theoretical_power <- 1 - beta
+
   list(
     n1 = n1,
     n2 = n2,
     theoretical_power = theoretical_power,
     empirical_power = empirical_power
-  )
-
-}
+  )}
 
 
 

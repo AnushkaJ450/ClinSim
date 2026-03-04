@@ -1,11 +1,18 @@
 Package: ClinSim
-Title: What the Package Does (One Line, Title Case)
+Title: Sample Size Checking by Simulatin
 Version: 0.0.0.9000
 Authors@R: 
     person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+Description: Tools for checking comparing sample size calculations using simulation. 
+    Provides an approach to the two sample Wilcoxon rank sum test, compares Noether 
+    and TrialSize approximations, estimates achieved power through Monte Carlo simulation 
+    and inlcudes tools for plotting power and sample size curves across varying effect sizes.
+    Also provides simulation-based validation for two-samplemean (t-test) sample size calculations.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick 
     license
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+Imports:
+  stats,
+  TrialSize
