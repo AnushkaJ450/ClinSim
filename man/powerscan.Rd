@@ -24,9 +24,9 @@ powerscan(
 
 \item{power}{Target power. Default is 0.8}
 
-\item{k}{allocation ratio}
+\item{k}{Allocation ratio.}
 
-\item{rdist}{Random generator}
+\item{rdist}{Random generator.}
 
 \item{alternative}{Passed to \code{\link[stats]{wilcox.test}}.}
 
@@ -36,7 +36,7 @@ powerscan(
 
 \item{nsim_est}{Integer Number of simulations for estimating \eqn{p_1,p_2,p_3}}
 
-\item{nsim_pow}{Integer Number of simulations for estimating power}
+\item{nsim_pow}{Integer Number of simulations for estimating power.}
 }
 \description{
 Runs \code{\link{wpower}} over a grid of \code{theta} values and returns a

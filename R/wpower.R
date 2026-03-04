@@ -11,11 +11,11 @@
 #'    \eqn{p_3 = P(Y_1 >= X, Y_2 >= X)}
 #'
 #'
-#' @param theta Numeric Treatment Effect. Location Shift
+#' @param theta Numeric. Treatment Effect. (location shift)
 #' @param rdist Function. Random generator for the error distribution. The default is \code{rnorm}
-#' @param nsim Number of simulation
+#' @param nsim Integer. Number of simulations
 #'
-#' @return A list with p1, p2, p3
+#' @return A list with p1, p2, p3.
 #'
 #' @examples
 #' estimate_p123(theta = 0.7, rdist = rnorm)
@@ -54,15 +54,15 @@ estimate_p123 <- function(theta, rdist, nsim = 30000) {
 #' Estimate p1, p2, p3 from pilot data
 #'
 #' Given observed data from two groups, estimates p1, p2, p3 using
-#' pairwise comparisons. This follows estimators described on page 363 of
+#' pairwise comparisons. This follows estimators described on page 363
 #' in the Sample Size Calculations in Clinical Research Book.
 #'
 #' The implementation is based on the indicator form estimators.
 #'
-#' @param x Numeric Vector. Control group observations
+#' @param x Numeric vector. Control group observations
 #' @param y Numeric vector. Treatment group observations
 #'
-#' @return A list with p1, p2, p3
+#' @return A list with p1, p2, p3.
 #'
 #'@export
 #'
@@ -90,7 +90,7 @@ estimate_p123_data <- function(x, y) {
 
 #' Noether (1987) sample size approximation for the Wilcoxon rank-sum test
 #'
-#' Computes the total sample size, using the Noether(1987) approximation
+#' Computes the total sample size, using the Noether (1987) approximation
 #' for the two sample Wilcoxon test in the continuous case. This method depends
 #' only on the effect size.
 #'
@@ -100,7 +100,7 @@ estimate_p123_data <- function(x, y) {
 #' @param p1 Numeric. Effect size probability
 #' @param k Numeric. Allocation ratio. Default is 1
 #'
-#' @return Integer. Total Sample Size N
+#' @return Integer. Total sample size N
 #'
 #' @examples
 #' noether_N(alpha = 0.05, beta=0.2, p1=0.7, k=1)
@@ -129,17 +129,17 @@ noether_N <- function(alpha, beta, p1, k = 1) {
 #' @param n1 Integer. Sample size for group 1 (control)
 #' @param n2 Integer. Sample size for group 2 (treatment)
 #' @param theta Numeric. Location Shift
-#' @param alpha Numeric Significance level Default: 0.05
-#' @param rdist Function. Random Generator. Default: rnorm
-#' @param nsim Integer. Number of simulation replicates Default is 2000
-#' @param alternative Character Type of alternative hypothesis
+#' @param alpha Numeric. Significance level Default: 0.05
+#' @param rdist Function. Random generator. Default: rnorm
+#' @param nsim Integer. Number of simulation replicates. Default is 2000
+#' @param alternative Character. Type of alternative hypothesis;
 #' one of "two.sided", "less", "greater". Default: two.sided
 #' @param exact logical Computes exact p-value. Default: FALSE
 #' @param correct Logical. Whether to apply continuity correction.
 #' Default: FALSE
 #'
 #'
-#' @return Numeric. Estimated Power
+#' @return Numeric. Estimated Power.
 #'
 #'@examples
 #' wilcox_power(n1 = 20, n2 = 20, theta = 0.7, rdist = rnorm, nsim = 1000)
@@ -184,17 +184,17 @@ wilcox_power <- function(n1,n2,theta,alpha=0.05, rdist=rnorm, nsim=2000,
 #' @param theta Numeric. Location shift (treatment effect)
 #' @param alpha Numeric. Significance Level. Default is 0.05
 #' @param power Numeric. Target power. Default is 0.8
-#' @param k Numeric. Allocation ration \eqn{k=n_1/n_2}. Default is 1
+#' @param k Numeric. Allocation ratio \eqn{k=n_1/n_2}. Default is 1
 #'
-#' If supplied used as effect size inputs for the TrialSize calculations.
+#' If supplied, used as effect size inputs for the TrialSize calculations.
 #' @param p1 Optional numeric. P(X>Y)
 #' @param p2 Optional numeric. P(Y >= X_1 AND Y >= X_2)
 #' @param p3 Optional numeric. P(Y_1 >= X AND Y_2 >= X)
 #'
 #' @param rdist Function. Random generator. Default rnorm
-#' @param pilot_x Optional numeric vectors. If supplied used to
+#' @param pilot_x Optional numeric vectors. If supplied, used to
 #' estimate \eqn{p_1,p_2,p_3} from pilot data
-#' @param pilot_y Optional numeric vectors. If supplied used to
+#' @param pilot_y Optional numeric vectors. If supplied, used to
 #' estimate \eqn{p_1,p_2,p_3} from pilot data
 #'
 #' @param alternative Character. Passed to \code{\link[stats]{wilcox.test}}.
@@ -211,11 +211,11 @@ wilcox_power <- function(n1,n2,theta,alpha=0.05, rdist=rnorm, nsim=2000,
 #'   \item{noether}{list with \code{n1}, \code{n2}, \code{N_total}, and simulated \code{power}.}
 #'   \item{theta, alpha, target_power, k}{Input Settings}
 #'   \item{rdist}{Generator function used for simulation}
-#'   \item{alternative, exact, correct}{Wilxcoxon test options used in simulation }
+#'   \item{alternative, exact, correct}{Wilcoxon test options used in simulation }
 #' }
 #'
 #' @examples
-#' # Example 1: Simulated estimated of p1,p2,p3 under a normal shift model
+#' # Example 1: Simulated estimates of p1, p2, p3 under a normal shift model
 #' Example1 <- wpower(theta = 0.7, rdist = rnorm, nsim_est = 50000, nsim_pow = 1000)
 #' Example1$trialsize
 #' Example1$noether

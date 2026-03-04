@@ -16,10 +16,10 @@ noether_N(alpha, beta, p1, k = 1)
 \item{k}{Numeric. Allocation ratio. Default is 1}
 }
 \value{
-Integer. Total Sample Size N
+Integer. Total sample size N
 }
 \description{
-Computes the total sample size, using the Noether(1987) approximation
+Computes the total sample size, using the Noether (1987) approximation
 for the two sample Wilcoxon test in the continuous case. This method depends
 only on the effect size.
 }

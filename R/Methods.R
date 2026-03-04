@@ -5,8 +5,8 @@
 #' used, the calculated sample size, the simulated power and the method used.
 
 
-#' @param x An object of returned by \code{wpower()}
-#' @param ... Additional arguments
+#' @param x An object returned by \code{wpower()}
+#' @param ... Additional arguments.
 #'
 #' @return Returns the input object \code{x}
 
@@ -33,14 +33,14 @@ print.wpower <- function(x,...){
 
 #' Summary method for wpower object
 #'
-#' Detailed summary Method with explanation of results and estimated
+#' Detailed summary method with explanation of results and estimated
 #' \eqn{p_1,p_2,p_3}
 #'
 #'
 #' @param object A wpower object
-#' @param ... additional arguments
+#' @param ... Additional arguments
 #'
-#' @return Returns the input object \code{object}
+#' @return Returns the input object.
 
 
 summary.wpower<- function(object, ...) {

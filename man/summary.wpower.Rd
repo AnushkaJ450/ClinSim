@@ -9,12 +9,12 @@
 \arguments{
 \item{object}{A wpower object}
 
-\item{...}{additional arguments}
+\item{...}{Additional arguments}
 }
 \value{
-Returns the input object \code{object}
+Returns the input object.
 }
 \description{
-Detailed summary Method with explanation of results and estimated
+Detailed summary method with explanation of results and estimated
 \eqn{p_1,p_2,p_3}
 }

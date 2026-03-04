@@ -7,15 +7,15 @@
 #' @param theta_range Numeric vector of effect sizes (\eqn{\theta}) to evaluate
 #' @param alpha Significance Level. Default is 0.05
 #' @param power Target power. Default is 0.8
-#' @param k allocation ratio
-#' @param rdist Random generator
+#' @param k Allocation ratio.
+#' @param rdist Random generator.
 #'
 #' @param alternative Passed to \code{\link[stats]{wilcox.test}}.
 #' @param exact Passed to \code{\link[stats]{wilcox.test}}.
 #' @param correct Passed to \code{\link[stats]{wilcox.test}}.
 #'
 #' @param nsim_est Integer Number of simulations for estimating \eqn{p_1,p_2,p_3}
-#' @param nsim_pow Integer Number of simulations for estimating power
+#' @param nsim_pow Integer Number of simulations for estimating power.
 #'
 #' @examples
 #' results <- powerscan(theta_range = seq(0.3, 1.2, by = 0.1))

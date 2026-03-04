@@ -17,7 +17,7 @@
 #' \code{margin = mu2 - mu1}.
 #'
 #' The simulation applies \code{\link[stats]{t.test}} with \code{var.equal = TRUE}
-#' and rejects \eqn{H_0: \mu_1 = \mu_2} when the p-value is below \code{alpha_test}.
+#' and rejects \eqn{H_0: \mu_1 = \mu_2} when the p-value is below \code{alpha}.
 #'
 #' @param alpha Numeric. Significance level used in the TrialSize sample size
 #'   calculation (typically 0.05).
@@ -28,7 +28,7 @@
 #'   \code{k = 1}.
 #' @param margin Numeric. True mean difference \eqn{(\mu_2 - \mu_1)} under the
 #'   alternative used for the power calculation.
-#' @param alpha_test Numeric. Significance level used for the t-test in the
+#' @param alpha Numeric. Significance level used for the t-test in the
 #'   simulation. Default is 0.05. (Often set equal to \code{alpha}.)
 #' @param n_sim Integer. Number of simulations. Default is 10000.
 #'
@@ -43,7 +43,7 @@
 #'
 #' @examples
 #' # res <- mean2power(alpha = 0.05, beta = 0.2, sigma = 1, k = 1, margin = 0.3,
-#' #                          alpha_test = 0.05, n_sim = 2000)
+#' #                          alpha = 0.05, n_sim = 2000)
 #' # res$empirical_power
 #'
 #' @export

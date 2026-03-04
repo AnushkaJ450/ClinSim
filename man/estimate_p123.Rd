@@ -7,14 +7,14 @@
 estimate_p123(theta, rdist, nsim = 30000)
 }
 \arguments{
-\item{theta}{Numeric Treatment Effect. Location Shift}
+\item{theta}{Numeric. Treatment Effect. (location shift)}
 
 \item{rdist}{Function. Random generator for the error distribution. The default is \code{rnorm}}
 
-\item{nsim}{Number of simulation}
+\item{nsim}{Integer. Number of simulations}
 }
 \value{
-A list with p1, p2, p3
+A list with p1, p2, p3.
 }
 \description{
 Simulates independent samples from a chosen distribution under the model

@@ -23,13 +23,13 @@ wilcox_power(
 
 \item{theta}{Numeric. Location Shift}
 
-\item{alpha}{Numeric Significance level Default: 0.05}
+\item{alpha}{Numeric. Significance level Default: 0.05}
 
-\item{rdist}{Function. Random Generator. Default: rnorm}
+\item{rdist}{Function. Random generator. Default: rnorm}
 
-\item{nsim}{Integer. Number of simulation replicates Default is 2000}
+\item{nsim}{Integer. Number of simulation replicates. Default is 2000}
 
-\item{alternative}{Character Type of alternative hypothesis
+\item{alternative}{Character. Type of alternative hypothesis;
 one of "two.sided", "less", "greater". Default: two.sided}
 
 \item{exact}{logical Computes exact p-value. Default: FALSE}
@@ -38,7 +38,7 @@ one of "two.sided", "less", "greater". Default: two.sided}
 Default: FALSE}
 }
 \value{
-Numeric. Estimated Power
+Numeric. Estimated Power.
 }
 \description{
 Estimates the empirical power of \code{\link[stats]{wilcox.test}}

@@ -7,16 +7,16 @@
 estimate_p123_data(x, y)
 }
 \arguments{
-\item{x}{Numeric Vector. Control group observations}
+\item{x}{Numeric vector. Control group observations}
 
 \item{y}{Numeric vector. Treatment group observations}
 }
 \value{
-A list with p1, p2, p3
+A list with p1, p2, p3.
 }
 \description{
 Given observed data from two groups, estimates p1, p2, p3 using
-pairwise comparisons. This follows estimators described on page 363 of
+pairwise comparisons. This follows estimators described on page 363
 in the Sample Size Calculations in Clinical Research Book.
 }
 \details{

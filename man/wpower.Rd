@@ -31,9 +31,9 @@ wpower(
 
 \item{power}{Numeric. Target power. Default is 0.8}
 
-\item{k}{Numeric. Allocation ration \eqn{k=n_1/n_2}. Default is 1
+\item{k}{Numeric. Allocation ratio \eqn{k=n_1/n_2}. Default is 1
 
-If supplied used as effect size inputs for the TrialSize calculations.}
+If supplied, used as effect size inputs for the TrialSize calculations.}
 
 \item{p1}{Optional numeric. P(X>Y)}
 
@@ -43,10 +43,10 @@ If supplied used as effect size inputs for the TrialSize calculations.}
 
 \item{rdist}{Function. Random generator. Default rnorm}
 
-\item{pilot_x}{Optional numeric vectors. If supplied used to
+\item{pilot_x}{Optional numeric vectors. If supplied, used to
 estimate \eqn{p_1,p_2,p_3} from pilot data}
 
-\item{pilot_y}{Optional numeric vectors. If supplied used to
+\item{pilot_y}{Optional numeric vectors. If supplied, used to
 estimate \eqn{p_1,p_2,p_3} from pilot data}
 
 \item{alternative}{Character. Passed to \code{\link[stats]{wilcox.test}}.}
@@ -68,7 +68,7 @@ An object of class \code{wpower}: a list with components
 \item{noether}{list with \code{n1}, \code{n2}, \code{N_total}, and simulated \code{power}.}
 \item{theta, alpha, target_power, k}{Input Settings}
 \item{rdist}{Generator function used for simulation}
-\item{alternative, exact, correct}{Wilxcoxon test options used in simulation }
+\item{alternative, exact, correct}{Wilcoxon test options used in simulation }
 }
 }
 \description{
@@ -80,7 +80,7 @@ The function then estimates achieved power for both designs by simulation
 under the specified location shift \code{theta} and distribution \code{rdist}.
 }
 \examples{
-# Example 1: Simulated estimated of p1,p2,p3 under a normal shift model
+# Example 1: Simulated estimates of p1, p2, p3 under a normal shift model
 Example1 <- wpower(theta = 0.7, rdist = rnorm, nsim_est = 50000, nsim_pow = 1000)
 Example1$trialsize
 Example1$noether
