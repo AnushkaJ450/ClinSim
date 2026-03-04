@@ -24,8 +24,8 @@ Simulates independent samples from a chosen distribution under the model
 Estimates:
 
 \eqn{p_1 = P(Y >= X)}
-\eqn{p_2 = P(Y >= X_1 \;&\; Y >= X_2)}
-\eqn{p_3 = P(Y_1 >= X \;&\; Y_2 >= X)}
+\eqn{p_2 = P(Y >= X_1, Y >= X_2)}
+\eqn{p_3 = P(Y_1 >= X, Y_2 >= X)}
 }
 \examples{
 estimate_p123(theta = 0.7, rdist = rnorm)
