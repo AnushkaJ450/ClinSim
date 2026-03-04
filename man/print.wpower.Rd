@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{...}{Additional arguments}
+
+\item{name}{description x An object of returned by \code{wpower()}}
 }
 \value{
 Returns the input object \code{x}
