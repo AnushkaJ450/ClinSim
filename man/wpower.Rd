@@ -54,7 +54,7 @@ estimate \eqn{p_1,p_2,p_3} from pilot data}
 \item{...}{Additional arguments passed to \code{\link[stats]{wilcox.test}}.}
 }
 \value{
-An object of class \code{"wpower}: a list with components
+An object of class \code{wpower}: a list with components
 \describe{
 \item{trialsize}{list with \code{n1}, \code{n2}, \code{N_total}, and simulated \code{power}.}
 \item{noether}{list with \code{n1}, \code{n2}, \code{N_total}, and simulated \code{power}.}

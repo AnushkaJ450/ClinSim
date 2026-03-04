@@ -12,12 +12,10 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-library(clinsim)
+library(clinSim)
 ```
 
-```{r setup}
-library(ClinSim)
-```
+
 
 ## Overview
 

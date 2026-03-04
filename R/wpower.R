@@ -200,7 +200,7 @@ wilcox_power <- function(n1,n2,theta,alpha=0.05, rdist=rnorm, nsim=2000,
 #' @param nsim_pow Integer Number of simulations for estimating power
 #' @param ... Additional arguments passed to \code{\link[stats]{wilcox.test}}.
 #'
-#' @return An object of class \code{"wpower}: a list with components
+#' @return An object of class \code{wpower}: a list with components
 #' \describe{
 #'   \item{trialsize}{list with \code{n1}, \code{n2}, \code{N_total}, and simulated \code{power}.}
 #'   \item{noether}{list with \code{n1}, \code{n2}, \code{N_total}, and simulated \code{power}.}
