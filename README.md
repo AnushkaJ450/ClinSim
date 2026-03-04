@@ -5,7 +5,7 @@ output: html_document
 
 # ClinSim
 
-Simulation based validation of smaple size calculations
+Simulation based validation of sample size calculations
 
 # Overview
 `clinsim` computes sample sizes for the two sample Wilcoxon test using two formulas,
