@@ -1,0 +1,155 @@
+---
+title: "Introduction to ClinSim"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{clinsim-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(clinsim)
+```
+
+```{r setup}
+library(ClinSim)
+```
+
+## Overview
+
+This vignette shows how to use `clinsim`. The `clinsim` package validates sample size calculations by simulating the actual test many times and checking whether the empirical power matches the target.
+
+The package provides two main functions:
+
+-   **`wpower()`** — sample size calculation and validation for the Wilcoxon-Mann-Whitney test
+-   **`mean2power()`** — sample size validation for the two-sample mean comparison (t-test)
+
+## wpower()
+
+The nonparametric setup in `wpower()` is based on a simple location-shift model.
+
+Let
+
+$$
+X = e, \qquad Y = \theta + e'
+$$
+
+where $e$ and $e'$ are independent random errors drawn from the same distribution $F$. The parameter $\theta$ represents the treatment effect (a shift in location).
+
+Under this model,
+
+$$
+p_1 = P(Y > X)
+$$
+
+is the probability that an observation from the treatment group exceeds one from the control group. Two additional probabilities are used in the TrialSize sample size approximation:
+
+$$
+p_2 = P(Y > X_1, Y > X_2), \qquad
+p_3 = P(Y_1 > X, Y_2 > X)
+$$
+
+where $X_1,X_2$ and $Y_1,Y_2$ are independent draws from the control and treatment distributions.
+
+The function `wpower()` estimates these probabilities and then compares two sample size approaches:
+
+-   **Noether (1987)** — depends only on $p_1$
+-   **TrialSize-style approximation** — depends on $p_1,p_2,p_3$
+
+The recommended sample sizes are then evaluated by simulating the Wilcoxon rank-sum test using `stats::wilcox.test()`.
+
+### How to use
+At minimum, provide `theta` (the location shift you want to detect):
+
+```{r basic, eval = FALSE}
+Example0 <- wpower(theta = 0.7)
+print(Example0)
+```
+
+### Detailed output
+
+```{r summary, eval = FALSE}
+summary(Example0)
+```
+
+### Three ways to specify the probability parameters
+
+The TrialSize formula needs three probability parameters: $p_1$, $p_2$, and $p_3 $. Noether only needs $p_1$. You have three options for how these are obtained:
+
+**Estimate from simulation (default):** The package generates large samples under the assumed model and computes the proportions.
+
+```{r est-sim, eval = FALSE}
+Example1 <- wpower(theta = 0.7)
+```
+
+**Estimate from pilot data:** Provide control and treatment data from a pilot study.
+
+```{r est-pilot, eval = FALSE}
+pilot_x <- rnorm(50)
+pilot_y <- rnorm(50, mean = 0.7)
+Example2 <- wpower(theta = 0.7, pilot_x = pilot_x, pilot_y = pilot_y)
+```
+
+**Set directly:** Specify any or all of the parameters yourself. You can mix — for example, set $p_1$ but let $p_2$ and $p_3$ be estimated.
+
+```{r est-direct, eval = FALSE}
+Example3 <- wilpower(theta = 0.7, p1 = 0.7, p2 = 0.56, p3 = 0.56)
+```
+
+### Changing the error distribution
+
+By default, normal errors are assumed. Supply any random number generator via `rdist`:
+
+```{r dist, eval = FALSE}
+# Uniform errors
+Example4 <- wilpower(theta = 0.7, rdist = function(n) runif(n, -1, 1))
+```
+
+
+### Passing arguments to wilcox.test
+
+Additional arguments pass through to `stats::wilcox.test()` via `...`:
+
+```{r dots-wil, eval = FALSE}
+# One-sided test
+Example5 <- wilpower(theta = 0.7, alternative = "greater")
+
+# Exact test
+Example6 <- wilpower(theta = 0.7, exact = TRUE)
+
+# With continuity correction
+Example7 <- wilpower(theta = 0.7, correct = TRUE)
+```
+
+### Allocation
+
+Change the allocation ratio $k = n_1 / n_2$:
+
+```{r unequal, eval = FALSE}
+Example8 <- wilpower(theta = 0.7, k = 2)
+```
+
+### Power/Sample curves
+
+To see how both methods perform across a range of effect sizes:
+
+```{r power-curve, eval = FALSE}
+Example9 <- powerscan(theta_range = seq(0.3, 1.0, by = 0.1))
+
+```
+
+
+## Two-Sample Mean: mean2power()
+
+You have computed a sample size for a two-sample t-test and want to verify via simulation that the empirical power matches the target.
+
+### How to use
+
+```{r basic-mean, eval = FALSE}
+Example7 <- mean2power(alpha = 0.05, beta = 0.2, sigma = 1, k = 1, margin = 0.3)
+Example$empirical_power
+```
