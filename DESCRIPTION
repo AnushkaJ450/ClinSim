@@ -16,3 +16,7 @@ RoxygenNote: 7.3.3
 Imports:
   stats,
   TrialSize
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
