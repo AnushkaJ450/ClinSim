@@ -46,7 +46,4 @@ Produces two base plots: power vs theta and total sample size vs theta.
 \examples{
 results <- powerscan(theta_range = seq(0.3, 1.2, by = 0.1))
 results2 <- powerscan(theta_range = c(0.4, 0.6, 0.8, 1.0, 1.2),nsim_pow=3000)
-
-
-
 }

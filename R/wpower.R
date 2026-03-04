@@ -9,7 +9,7 @@
 #'   \item \eqn{p_1 = P(Y >= X)}
 #'   \item \eqn{p_2 = P(Y >= X_1 AND Y >= X_2)}
 #'   \item \eqn{p_3 = P(Y_1 >= X AND Y_2 >= X)}
-#'}
+#'   }
 #'
 #' @param theta Numeric Treatment Effect. Location Shift
 #' @param rdist Function. Random generator for the error distribution. The default is \code{rnorm}
@@ -20,7 +20,7 @@
 #' @examples
 #' estimate_p123(theta = 0.7, rdist = rnorm)
 #' estimate_p123(theta = 0.7, rdist= rlogis, nsim=5000)
-#'
+#'@export
 
 
 estimate_p123 <- function(theta, rdist, nsim = 30000) {
@@ -64,7 +64,7 @@ estimate_p123 <- function(theta, rdist, nsim = 30000) {
 #'
 #' @return A list with p1, p2, p3
 #'
-#'
+#'@export
 #'
 
 
@@ -104,6 +104,7 @@ estimate_p123_data <- function(x, y) {
 #'
 #' @examples
 #' noether_N(alpha = 0.05, beta=0.2, p1=0.7, k=1)
+#' @export
 
 noether_N <- function(alpha, beta, p1, k = 1) {
 
@@ -142,7 +143,7 @@ noether_N <- function(alpha, beta, p1, k = 1) {
 #'
 #'@examples
 #' wilcox_power(n1 = 20, n2 = 20, theta = 0.7, rdist = rnorm, nsim = 1000)
-#'
+#'@export
 
 
 
@@ -185,11 +186,15 @@ wilcox_power <- function(n1,n2,theta,alpha=0.05, rdist=rnorm, nsim=2000,
 #' @param power Numeric. Target power. Default is 0.8
 #' @param k Numeric. Allocation ration \eqn{k=n_1/n_2}. Default is 1
 #'
-#' @param p1, p2, p3 Optional numeric. If supplied used as effect size inputs
-#' for the TrialSize calculations.
+#' If supplied used as effect size inputs for the TrialSize calculations.
+#' @param p1 Optional numeric. P(X>Y)
+#' @param p2 Optional numeric. P(Y >= X_1 AND Y >= X_2)
+#' @param p3 Optional numeric. P(Y_1 >= X AND Y_2 >= X)
 #'
 #' @param rdist Function. Random generator. Default rnorm
-#' @param pilot_x, pilot_y Optional numeric vectors. If supplied used to
+#' @param pilot_x Optional numeric vectors. If supplied used to
+#' estimate \eqn{p_1,p_2,p_3} from pilot data
+#' @param pilot_y Optional numeric vectors. If supplied used to
 #' estimate \eqn{p_1,p_2,p_3} from pilot data
 #'
 #' @param alternative Character. Passed to \code{\link[stats]{wilcox.test}}.
@@ -247,7 +252,7 @@ wpower <- function(theta, alpha = 0.05, power = 0.80, k = 1,
 
   # Sample Sizes
   # Trial Size returns n2
-  n2_ts <- ceiling(Nonpara.Two.Sample(alpha, beta, k,p1,p2,p3))
+  n2_ts <- ceiling(TrialSize::Nonpara.Two.Sample(alpha, beta, k,p1,p2,p3))
   n1_ts <- ceiling(k * n2_ts)
 
   # Noether: returns N

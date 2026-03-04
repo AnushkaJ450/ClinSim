@@ -5,7 +5,7 @@
 #' used, the calculated sample size, the simulated power and the method used.
 
 
-#' @param name description x An object of returned by \code{wpower()}
+#' @param x An object of returned by \code{wpower()}
 #' @param ... Additional arguments
 #'
 #' @return Returns the input object \code{x}

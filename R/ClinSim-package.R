@@ -16,5 +16,5 @@
 #'
 #' @docType package
 #' @aliases ClinSim-package
-#' @importFrom graphics plot
+#' @importFrom graphics plot lines abline legend par
 "_PACKAGE"

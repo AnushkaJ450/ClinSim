@@ -7,9 +7,9 @@
 \method{print}{wpower}(x, ...)
 }
 \arguments{
-\item{...}{Additional arguments}
+\item{x}{An object of returned by \code{wpower()}}
 
-\item{name}{description x An object of returned by \code{wpower()}}
+\item{...}{Additional arguments}
 }
 \value{
 Returns the input object \code{x}

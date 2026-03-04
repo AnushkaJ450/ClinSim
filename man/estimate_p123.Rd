@@ -31,5 +31,4 @@ Estimates:
 \examples{
 estimate_p123(theta = 0.7, rdist = rnorm)
 estimate_p123(theta = 0.7, rdist= rlogis, nsim=5000)
-
 }

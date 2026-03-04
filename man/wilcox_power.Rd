@@ -46,5 +46,4 @@ under a location shift model by Monte Carlo simulation.
 }
 \examples{
 wilcox_power(n1 = 20, n2 = 20, theta = 0.7, rdist = rnorm, nsim = 1000)
-
 }

@@ -31,14 +31,22 @@ wpower(
 
 \item{power}{Numeric. Target power. Default is 0.8}
 
-\item{k}{Numeric. Allocation ration \eqn{k=n_1/n_2}. Default is 1}
+\item{k}{Numeric. Allocation ration \eqn{k=n_1/n_2}. Default is 1
 
-\item{p1, }{p2, p3 Optional numeric. If supplied used as effect size inputs
-for the TrialSize calculations.}
+If supplied used as effect size inputs for the TrialSize calculations.}
+
+\item{p1}{Optional numeric. P(X>Y)}
+
+\item{p2}{Optional numeric. P(Y >= X_1 AND Y >= X_2)}
+
+\item{p3}{Optional numeric. P(Y_1 >= X AND Y_2 >= X)}
 
 \item{rdist}{Function. Random generator. Default rnorm}
 
-\item{pilot_x, }{pilot_y Optional numeric vectors. If supplied used to
+\item{pilot_x}{Optional numeric vectors. If supplied used to
+estimate \eqn{p_1,p_2,p_3} from pilot data}
+
+\item{pilot_y}{Optional numeric vectors. If supplied used to
 estimate \eqn{p_1,p_2,p_3} from pilot data}
 
 \item{alternative}{Character. Passed to \code{\link[stats]{wilcox.test}}.}
