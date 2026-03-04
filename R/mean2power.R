@@ -11,7 +11,7 @@
 #' (empirical) power.
 #'
 #' @details
-#' Data are generated under a normal model with common standard deviation
+#' Data is generated under a normal model with common standard deviation
 #' sigma. Group 1 outcomes are generated from \eqn{N(0, \sigma^2)} and
 #' group 2 outcomes from \eqn{N(\mathrm{margin}, \sigma^2)}, where
 #' \code{margin = mu2 - mu1}.
